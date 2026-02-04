@@ -1,0 +1,618 @@
+% Modified for NDSS 2024 by MS on 2024/07/01
+
+%% bare_conf.tex
+%% V1.4b
+%% 2015/08/26
+%% by Michael Shell
+%% See:
+%% http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.8b or later) with an IEEE
+%% conference paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/pkg/ieeetran
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% User assumes all risk.
+%% In no event shall the IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%*************************************************************************
+
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. The IEEE's font choices and paper sizes can   ***
+% *** trigger bugs that do not appear when using other class files.       ***                          ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+
+\documentclass[conference]{IEEEtran}
+% --- Added for NDSS poster submission (figures/URLs) ---
+\usepackage{graphicx}
+\usepackage{url}
+% Some Computer Society conferences also require the compsoc mode option,
+% but others use the standard conference format.
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[conference]{../sty/IEEEtran}
+
+
+\usepackage{placeins} % HJAHN
+\usepackage{float}
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/pkg/ifpdf
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+%\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of the IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off
+% such as if a citation ever needs to be enclosed in parenthesis.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 5.0 (2009-03-20) and later if using hyperref.sty.
+% The latest version can be obtained at:
+% http://www.ctan.org/pkg/cite
+% The documentation is contained in the cite.sty file itself.
+
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at: 
+% http://www.ctan.org/pkg/graphicx
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/pkg/epslatex
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics.
+%
+% Note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/amsmath
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as the IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/pkg/algorithms
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/pkg/algorithmicx
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/array
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\ifCLASSOPTIONcompsoc
+%  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false,font=footnotesize]{subfig}
+%\fi
+% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
+% for subfigure.sty, the latter of which is no longer maintained and is
+% incompatible with some LaTeX packages including fixltx2e. However,
+% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
+% which will override IEEEtran.cls' handling of captions and this will result
+% in non-IEEE style figure/table captions. To prevent this problem, be sure
+% and invoke subfig.sty's "caption=false" package option (available since
+% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
+% handling of captions.
+% Note that the Computer Society format requires a larger sans serif font
+% than the serif footnote size font used in traditional IEEE formatting
+% and thus the need to invoke different subfig.sty package options depending
+% on whether compsoc mode has been enabled.
+%
+% The latest version and documentation of subfig.sty can be obtained at:
+% http://www.ctan.org/pkg/subfig
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure.
+% Be aware that LaTeX2e kernels dated 2015 and later have fixltx2e.sty's
+% corrections already built into the system in which case a warning will
+% be issued if an attempt is made to load fixltx2e.sty as it is no longer
+% needed.
+% The latest version and documentation can be found at:
+% http://www.ctan.org/pkg/fixltx2e
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/stfloats
+% Do not use the stfloats baselinefloat ability as the IEEE does not allow
+% \baselineskip to stretch. Authors submitting work to the IEEE should note
+% that the IEEE rarely uses double column equations and that authors should try
+% to avoid such use. Do not be tempted to use the cuted.sty or midfloat.sty
+% packages (also by Sigitas Tolusis) as the IEEE does not format its papers in
+% such ways.
+% Do not attempt to use stfloats with fixltx2e as they are incompatible.
+% Instead, use Morten Hogholm'a dblfloatfix which combines the features
+% of both fixltx2e and stfloats:
+%
+% \usepackage{dblfloatfix}
+% The latest version can be found at:
+% http://www.ctan.org/pkg/dblfloatfix
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/url
+% Basically, \url{my_url_here}.
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+
+\begin{document}
+\raggedbottom % HJ
+%
+% paper title
+% Titles are generally capitalized except for words such as a, an, and, as,
+% at, but, by, for, in, nor, of, on, or, the, to and up, which are usually
+% not capitalized unless they are the first or last word of the title.
+% Linebreaks \\ can be used within to get better formatting as desired.
+% Do not put math or special symbols in the title.
+\title{Poster: GEM-PLI Side Channel in GPON: \\Inferring Encrypted Streaming Traffic}
+
+
+% author names and affiliations
+% use a multiple column layout for up to three different
+% affiliations
+\author{\IEEEauthorblockN{Hyunjun An}
+	\IEEEauthorblockA{Heungdeok High School\\
+		hjahn@anhyunjun.com}}
+	
+% conference papers do not typically use \thanks and this command
+% is locked out in conference mode. If really needed, such as for
+% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
+% after \documentclass
+
+% for over three affiliations, or if they all won't fit within the width
+% of the page, use this alternative format:
+% 
+%\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
+%Homer Simpson\IEEEauthorrefmark{2},
+%James Kirk\IEEEauthorrefmark{3}, 
+%Montgomery Scott\IEEEauthorrefmark{3} and
+%Eldon Tyrell\IEEEauthorrefmark{4}}
+%\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
+%Georgia Institute of Technology,
+%Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
+%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
+%Email: homer@thesimpsons.com}
+%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
+%Telephone: (800) 555--1212, Fax: (888) 555--1212}
+%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
+
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+%\IEEEoverridecommandlockouts
+%\makeatletter\def\@IEEEpubidpullup{6.5\baselineskip}\makeatother
+%\IEEEpubid{\parbox{\columnwidth}{
+%		Network and Distributed System Security (NDSS) Symposium 2026\\
+%		February 2026\\
+%		ISBN [TBD]\\
+%		https://dx.doi.org/10.14722/ndss.2026.[TBD]\\
+%		www.ndss-symposium.org
+%}
+%\hspace{\columnsep}\makebox[\columnwidth]{}}
+
+
+
+% make the title area
+\maketitle
+
+% As a general rule, do not put math, special symbols or citations
+% in the abstract
+\begin{abstract}
+Gigabit Passive Optical Networks (GPON), an ITU-T standardized technology adopted in FTTH networks, supports downstream payload encryption to protect subscribers' traffic. Unfortunately, encryption does not cover all access layer metadata. This poster presents a preliminary analysis demonstrating that the Payload Length Indicator (PLI), which remains in plaintext in GEM headers, can be exploited as a side channel to infer streaming activity. Using a GPON downstream simulator, We demonstrate that PLI traces are highly consistent across repeated runs of the same Youtube video and suggest that a passive attacker on the same optical splitter as the victim could potentially infer a victim's streaming activity (e.g., Youtube Video Identification). 
+\end{abstract}
+
+
+% no keywords
+
+
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+% --- NDSS Type 1 Poster Abstract (WIP) ---
+
+\section{Introduction And Motivation}
+As fiber internet has become dominant in network infrastructures, GPON--one of the passive optical network (PON) technologies--is adopted by many ISPs to provide fiber-to-the-home (FTTH) internet. Since GPON is a popular PON technology, it is important to ensure traffic confidentiality. 
+ GPON supports AES-based downstream payload encryption at the GPON Encapsulation Method (GEM) layer. However, some fields in the GEM header remain plaintext such as the Payload Length Indicator (PLI) field used for multiplexing and the Port-ID field used for mapping subscribers' Optical Network Terminals/Units(ONTs/ONUs) (typically called "modem").
+
+Such plaintext fields may appear innocuous. However, recent studies have demonstrated that such metadata may be exploited to infer a victim's activity (e.g., identifying a victim's web-based video streaming watching activity) ~\cite{bae-sec22}~\cite{ytyt}~\cite{ytyt2}.
+
+While prior studies primarily focused on upper layer or cellular traffic analysis~\cite{bae-sec22}~\cite{ytyt}, we researched whether the plaintext PLI field in GEM headers can be exploited to infer a victim's streaming activity.
+
+In this poster, We developed a software-based GPON downstream simulator to analyze the statistical properties of PLI traces. Using these PLI traces, we present preliminary evidence that Youtube streaming traces are highly consistent over time and distinctive at the GEM layer, suggesting that value of the PLI field can be exploited to infer victim's video streaming.
+
+\section{Background}  
+
+%\begin{figure}[!htbp]
+%  \centering
+  % Use PDF for LaTeX (recommended). If you prefer PNG, replace with .png.
+%  \includegraphics[width=\linewidth]{fig/gpon_encapsulation_diagram_tikz.pdf}
+%  \caption{Encapsulation pipeline in GPON downstream: upper-layer packets (e.g., Ethernet/IP) are encapsulated into GEM frames, packed into GTC frames, and broadcast over the shared optical line.}
+%  \label{fig:gpon-encapsulation}
+%\end{figure}
+%\textbf{GPON Topology and GTC Framing.} GPON Networks consist of an Optical Line Terminal (OLT) at the ISP and multiple Optical Network Terminals/Units(ONTs/ONUs) (typically called "modem") deployed at subscribers. A single optical tree can serve up to 32 subscribers (e.g., 1:32 split). In the downstream, the OLT transmits downstream traffic through the splitter. Since the splitter passively distributes the optical signal from the OLT to all ONUs/ONTs on the same splitter, each ONU/ONT can physically receive the downstream transmissions destined for other ONUs/ONTs. At the transmission layer, downstream bytes are carried in GPON Transmission Convergence (GTC) frames sent periodically(per-125~$\mu$s), whose payload area carries multiple GEM frames~\cite{cisco-gpon,itu-g9843}.
+
+%\textbf{GEM Framing.} Upper layer traffic (e.g., Ethernet frames) are carried in the GEM Payload Field transmitted via GPON Encapsulation Method (GEM) Frames. Downstream GEM payloads are often AES encrypted for confidentiality (depending on ISP configuration~\cite{itu-g9843}). However, the GEM Port-ID (used to demultiplex) and the Payload Length Indicator (PLI), which encodes the payload size, are transmitted in plaintext. Thus, an attacker can extract a victim’s encrypted payload lengths from consecutive PLI values (optionally grouped by Port-ID), even without decrypting the payload contents.
+\textbf{GPON framing.}
+In GPON, the Optical Line Terminal (OLT) broadcasts downstream traffic over a passive optical splitter to multiple Optical Network Units (ONUs) (typically called "modem"). Downstream transmission is organized into fixed duration GTC frames (125~$\mu$s), each composed of a physical control block downstream (PCBd) followed by a downstream GTC payload region.
+~\cite{itu-g9843} % Fig. 8-1 / 8-2
+
+\textbf{GEM and plaintext metadata.}
+Upper layer traffic (e.g., Ethernet frame) is carried in the Payload Field in GEM frames. A GEM frame starts with a 5 byte GEM header containing a 12 bit PLI, a 12 bit Port-ID, a 3 bit Payload Type Indicator (PTI), and a header error control (HEC) field. PTI indicates whether the payload is the end of a fragmented payload or not. %
+~\cite{itu-g9843} % Fig. 8-11 + PLI/PTI text
+
+\textbf{PLI length even under encryption.}
+In GPON, downstream user traffic is carried as GEM frames multiplexed in the GTC payload~\cite{itu-g9843}.
+Each GEM header includes a plaintext PLI field that specifies the payload length $L$ in bytes (up to 4095 bytes). In certain cases, larger payload values are fragmented accordingly~\cite{itu-g9843}(where PTI is used to indicate whether a GEM payload is a end of a fragment or not).
+Downstream GEM encryption only encrypts payload field(not GEM header) using AES-CTR.
+Since AES-CTR Encryption is length-preserving. even when payload bytes are encrypted, an attacker can observe the plaintext payload length.
+
+\textbf{Video Identification.} HTTP Adaptive Streaming (HAS) is the popular video streaming model -- which is generally adopted by video streaming platforms (e.g., Youtube) --delivers video by letting the client periodically request short media segments at a bitrate chosen by an adaptive bitrate (ABR) algorithm. This request--response process forms characteristic bursty download patterns and bitrate-dependent segment sizes, which can be exploited for traffic inference.~\cite{bae-sec22}
+
+\section{Threat Model}
+We consider an attacker who is on the same optical splitter as the victim and has the capability to obtain the victim’s Port-ID, which is crucial for targeting specific GEM frames.
+\begin{itemize}
+  \item \textbf{1. Premise} The attacker has an optical capture device (e.g., FPGA with optical TAP, modified ONU that can receive raw GTC frames) connected to splitter and passively records downstream from OLT.
+the attacker does not need to register their device with OLT; so even if they use receive-only optical tap, they can entirely record downstream records without transmitting.
+  \item \textbf{2. Collect GEMs} Then, attacker extracts GTC frames from downstream traffic and parses GEM frames. 
+  \item \textbf{3. Convert GEM PLI to dataset} Then, the attacker filters GEM frames for a victim's Port-ID and records PLI values with timestamps.
+%  \item \textbf{4. Dataset format} The dataset must include start \& end time and duration and PLI and sequence information.
+   \item \textbf{4. Dataset format} Each record includes \texttt{t\_start\_us}, \texttt{gem\_id}, \texttt{port\_id}, and \texttt{pli}.
+  \item \textbf{5. Classification via database matching} The attacker matches the captured PLI time series to a pre-collected database of PLI traces (built from known videos) and selects the closest match to infer the victim’s video.
+\end{itemize}
+%\begin{figure}[H]
+%  \centering
+%  \includegraphics[width=\linewidth]{fig/attacker_pipeline_diagram_tikz.pdf}
+%  \caption{Attacker-side observation pipeline: passive optical capture under the same splitter enables reception of downstream GTC frames, extraction of GEM frames, and construction of a PLI-based dataset (\texttt{gems.csv}).}
+%  \label{fig:attacker-pipeline}
+%\end{figure}
+\section{Trace Generation}
+To demonstrate the threat model in our experimental environment, we developed a software based GPON downstream trace generator~\cite{github} that follows key ITU-T G.984.3 TC-layer parameters relevant to PLI (125~$\mu$s framing and GEM header formatting). From a downlink ethernet packet capture file of encrypted video traffic, we (i) map Ethernet frames into GEM payloads (fragmenting to satisfy the 12 bit PLI limit), (ii) generate plaintext GEM headers (PLI/Port-ID/PTI), and (iii) pack the GEM stream into fixed-length 125~$\mu$s downstream frames consistent with the configured line rate. The attacker signal is either the GEM-level PLI sequence or the per-frame occupancy series. Large Ethernet packets may generate multiple GEM fragments; thus, PLI values in our traces reflect per fragment payload lengths (the attacker-visible observable).
+
+\textbf{Note.} Payload bytes can optionally be AES-CTR protected; however, this does not change the PLI trace because AES-CTR is length-preserving (XOR), so encryption does not change any fragment length. Our analysis uses only plaintext headers (e.g., PLI) and timing.
+\section{Experiment and Preliminary Results}
+First, we played each of 10 videos (three runs each; run1, run2, run3) on Ubuntu 24.04 under a fixed playback quality and resolution setting (720p). To minimize interference, we restricted other background traffic (e.g., VNC, SSH) during playback. For each run, we captured downlink ethernet packet (PCAP) for 180 seconds. Then, we replayed each PCAP file in our simulator to produce a CSV dataset of PLI values and timestamps(one trace per run) (e.g., vid001\_run001.gem.csv~\cite{github}). We preserve original PCAP packet timestamps to retain idle periods and burstiness; each synthesized GEM is assigned t\_start\_us derived from the PCAP time base (µs resolution). After producing the dataset, we visualized cumulative PLI--Time Plot based on our dataset(Publicly Available on our Github repository)~\cite{github}. We observed a clear correlation between each video and its cumulative PLI over time graph~\cite{github}; traces from the same video show highly consistent slopes across runs.(Our Github repository: \//out\_cumsum)
+For similarity analysis, we bin PLI events into 100ms bins, compute the cumulative sum, normalize by the final cumulative value, and compare traces using Pearson correlation and RMSE.
+These traces approximate the payload length observations available to a real same-splitter adversary and enable systematic evaluation of PLI based inference.
+We use run1,2 dataset files as a database and run3 dataset files as a query trace.
+%\FloatBarrier 
+%\begin{figure}[t]
+%  \centering
+%  \includegraphics[width=0.48\linewidth]{fig/cumsum_vid001.pdf}
+%  \vspace{-0.5em}
+%  \caption{Cumulative PLI vs. time for one video (vid001) across three runs (720p). The three traces show closely matching slopes; additional plots are available in our repository~\cite{github}.}
+%	\caption{Cumulative PLI over time for one video across three runs (run1--run3). Traces show closely matching slopes, indicating high within-video consistency under fixed settings. Other traces are available on our GitHub repository~\cite{github}.}
+
+%  \label{fig:cumsum}
+%\end{figure}
+
+% Quantitative similarity (intra-video vs inter-video)
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{fig/box_rmse.png}\\
+    \vspace{-0.5em}
+    {\small (a) RMSE (lower = more similar)}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{fig/box_pearson_r.png}\\
+    \vspace{-0.5em}
+    {\small (b) Pearson correlation (higher = more similar)}
+  \end{minipage}
+%  \begin{minipage}[t]{0.48\linewidth}
+%    \centering
+%    \includegraphics[width=\linewidth]{fig/cumsum_vid001.pdf}\\
+%    \vspace{-0.5em}
+%    {\small (b) DTW distance (lower = more similar)}
+%  \end{minipage}
+%  \caption{Distance distributions for same-video pairs (intra-video) and different video pairs (inter-video) yielded from cumulative PLI traces. Same video pairs have smaller distances than different video pairs. We found a partial intersection due to ABR variability and buffering, but the distinction is sufficient for discrimination}
+\caption{Similarity distributions between same-video and different-video cumulative PLI traces. Same video pairs tend to show higher correlation and RMSE smaller distance. We found a partial intersection due to ABR variability and buffering, but the distinction is sufficient for discrimination using both RMSE and Pearson}
+%%기존\caption{Distance distributions between same-video (intra) and different-video (inter) cumulative PLI traces. Same-video pairs tend to yield smaller distances, with partial overlap due to ABR variability and buffering.}
+
+  \label{fig:pli-metrics}
+\end{figure} 
+\vspace{-1.5em}
+\begin{table}[H]
+  \centering
+  \tiny
+  \setlength{\tabcolsep}{1pt}
+  \renewcommand{\arraystretch}{0.3}
+  \caption{Per-query Top-1 predictions.~\cite{github}}
+  \label{tab:top1-detail}
+  \begin{tabular}{l l c c c}
+    \hline
+    \textbf{Query} & \textbf{Prediction} & \textbf{CORRECT} & \textbf{margin} & \textbf{$r$/RMSE} \\
+    \hline
+    vid001/r3 & vid001/r1 & T & 2 & 0.998/0.025 \\
+    vid002/r3 & vid002/r1 & T & 5 & 0.995/0.041 \\
+    vid003/r3 & vid003/r2 & T & 1 & 0.980/0.050 \\
+    vid004/r3 & vid004/r1 & T & 2 & 0.996/0.037 \\
+    vid005/r3 & vid005/r2 & T & 2 & 0.998/0.020 \\
+    vid006/r3 & vid008/r1 & F & 2 & 0.994/0.048 \\
+    vid007/r3 & vid007/r1 & T & 2 & 0.999/0.025 \\
+    vid008/r3 & vid008/r1 & T & 2 & 0.999/0.018 \\
+    vid009/r3 & vid009/r2 & T & 2 & 0.990/0.041 \\
+    vid010/r3 & vid010/r1 & T & 3 & 0.998/0.020 \\
+    \hline
+  \end{tabular}
+\end{table}
+\vspace{-0.9em}
+We quantify similarity on the normalized cumulative PLI time series: same video pairs exhibit higher Pearson correlation (median $r=0.991$ vs $0.970$, AUC=0.779) and lower RMSE (median 0.048 vs 0.098, AUC=0.826).
+Using nearest matching with rank voting over Pearson and RMSE, we achieve 90\% Top-1 identification accuracy (9/10) when matching run3 queries against run1,run2 query traces.
+%We further quantify similarity using distance-based metrics on the normalized cumulative PLI time series: same-video pairs yield smaller distances than different-video pairs (median RMSE: 0.040 vs 0.088, AUC=0.813; median DTW: 0.031 vs 0.061, AUC=0.776).
+
+\section{Conclusion And Discussion}
+Despite GEM Payload Encryption, GPON may remain vulnerable to streaming inference because PLI values in GEM headers can be exploited to infer a victim’s video activity (e.g., Youtube). 
+Potential mitigations include traffic shaping and obfuscating GEM metadata.
+
+Future Work will be conducted in testbed with Real OLT, ONU and Optical Splitter. We will use FPGA device to capture GEM frames to parse downstream frames. We will expand to more videos and longer captures with changing various resolution, bitrate.
+
+\textbf{Extent to XGS-PON Networks.} We assume that XGS-PON has same issue; XGEM Frame that XGS-PON uses has Payload Length Indicator Field like GEM. We will validate this by repeating our capture-and-matching evaluation on an XGS-PON testbed.
+
+
+% (Conclusion and acknowledgments intentionally omitted to satisfy the 2-page poster limit.)
+
+
+
+
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://mirror.ctan.org/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+%\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,../bib/paper}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+\FloatBarrier
+\begin{thebibliography}{6}
+
+\bibitem{itu-g9843}
+ITU-T Recommendation G.984.3, \emph{Gigabit-capable passive optical networks (GPON): Transmission convergence layer specification}.
+
+
+\bibitem{cisco-gpon}
+Cisco, ``Understand GPON Technology,'' Troubleshooting TechNotes. (Document ID: 216230)
+
+\bibitem{github}
+Our Github Repository - 
+
+\url{https://gitshare.me/repo/c8afd178-a072-4cee-a01c-8b3d12467a28}
+
+\bibitem{bae-sec22}
+S.~Bae, et al.,
+``Watching the Watchers: Practical Video Identification Attack in LTE Networks,''
+in \emph{31st USENIX Security Symposium (USENIX Security '22)}, 2022. 
+
+\bibitem{ytyt}
+X.~Zhang, et al.,
+``Traffic spills the beans: A robust video identification attack against YouTube,''
+\emph{Computers \& Security}, vol.~137, 2024, Art. 103623. 
+
+\bibitem{ytyt2}
+N.~Hu et al.,
+``Breaking Through the Diversity: Encrypted Video Identification Attack Based on QUIC Features,''
+in \emph{ESORICS 2024}, 2024. 
+
+\end{thebibliography}
+
+
+
+
+
+% that's all folks
+\end{document}
+
+
