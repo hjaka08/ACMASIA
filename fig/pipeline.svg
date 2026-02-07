@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1800" height="520" viewBox="0 0 1800 520" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, Helvetica, sans-serif; font-size: 32px; font-weight: 800; fill: #111; }
+      .h     { font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: 800; fill: #111; }
+      .t     { font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: 700; fill: #111; opacity: 0.95; }
+      .s     { font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 600; fill: #111; opacity: 0.85; }
+      .box   { stroke: #1f2937; stroke-width: 2; }
+      .arrow { stroke: #111; stroke-width: 3; fill: none; }
+      .dash  { stroke-dasharray: 8 6; }
+    </style>
+
+    <marker id="arrowhead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#111"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="900" y="52" text-anchor="middle" class="title">End-to-End Pipeline: GPON GEM-PLI Video Inference</text>
+
+  <!-- Lane labels -->
+  <text x="70" y="105" class="h">Reference / Database (known videos)</text>
+  <text x="70" y="305" class="h">Query (victim observation)</text>
+
+  <!-- =========================
+       LANE 1: Reference / DB
+       ========================= -->
+  <!-- Box: Video Playback -->
+  <rect x="70" y="125" rx="14" ry="14" width="220" height="90" class="box" fill="#e5e7eb"/>
+  <text x="180" y="160" text-anchor="middle" class="t">Video Playback</text>
+  <text x="180" y="182" text-anchor="middle" class="s">(YouTube, fixed res.)</text>
+
+  <!-- Arrow to capture -->
+  <line x1="290" y1="170" x2="330" y2="170" class="arrow" marker-end="url(#arrowhead)"/>
+
+  <!-- Box: PCAP Capture -->
+  <rect x="340" y="125" rx="14" ry="14" width="240" height="90" class="box" fill="#e5e7eb"/>
+  <text x="460" y="155" text-anchor="middle" class="t">PCAP Capture</text>
+  <text x="460" y="177" text-anchor="middle" class="s">tcpdump/dumpcap, 180s</text>
+  <text x="460" y="197" text-anchor="middle" class="s">run#.pcap</text>
+
+  <!-- NEW: Screenshot during capture (parallel artifact) -->
+  <rect x="340" y="35" rx="14" ry="14" width="240" height="70" class="box" fill="#fef3c7"/>
+  <text x="460" y="68" text-anchor="middle" class="t">Screenshot<
